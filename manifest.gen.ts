@@ -101,8 +101,7 @@ const manifest = {
     "deco-sites/johnstart/sections/Miscellaneous/CookieConsent.tsx": $$$$$$32,
     "deco-sites/johnstart/sections/Miscellaneous/Slide.tsx": $$$$$$33,
     "deco-sites/johnstart/sections/Newsletter/Newsletter.tsx": $$$$$$34,
-    "deco-sites/johnstart/sections/Product/ImageGalleryFrontBack.tsx":
-      $$$$$$35,
+    "deco-sites/johnstart/sections/Product/ImageGalleryFrontBack.tsx": $$$$$$35,
     "deco-sites/johnstart/sections/Product/NotFound.tsx": $$$$$$36,
     "deco-sites/johnstart/sections/Product/NotFoundChallenge.tsx": $$$$$$37,
     "deco-sites/johnstart/sections/Product/ProductDetails.tsx": $$$$$$38,
