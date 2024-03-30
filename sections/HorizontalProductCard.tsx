@@ -1,5 +1,6 @@
 import { Quotes } from "../loaders/getquotes.ts";
 import Skeleton from "../components/ui/Skeleton.tsx";
+import LikeProduct from "../islands/Like.tsx";
 
 export interface Props {
   image: string;
@@ -72,7 +73,7 @@ export default function HorizontalProductCard(
         <p className="mt-2 md:mt-5  overflow-hidden line-clamp-3">
           {description}
         </p>
-        {items.data.map((item) => <p>{item}</p>)}
+        <LikeProduct />
       </div>
       <div className="flex flex-col p-2 w-full text-center col-span-1 lg:col-span-1">
         <span className="font-bold text-primary text-lg sm:text-2xl">
