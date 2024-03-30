@@ -27,7 +27,6 @@ export default function PartialImageGallery({ images, limit = 3 }: Props) {
         <button
           {...usePartialSection({
             props: { limit: limit + 1 },
-            mode: "append",
           })}
           className="w-56 bg-success m-auto hover:bg-transparent hover:text-success hover:border hover:border-green-600 text-white font-bold py-2 px-4 rounded"
         >
