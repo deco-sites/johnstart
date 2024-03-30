@@ -9,5 +9,5 @@ export default async function getproductdetail(): Promise<ProductDetails> {
     "https://raw.githubusercontent.com/deco-sites/campdemo/main/pdp.json",
   ).then((res) => res.json());
 
-  return detailsPage;
+  return { data: detailsPage };
 }

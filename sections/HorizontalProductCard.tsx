@@ -1,12 +1,10 @@
 import { Quotes } from "../loaders/getquotes.ts";
 import Skeleton from "../components/ui/Skeleton.tsx";
 import LikeProduct from "../islands/Like.tsx";
+import { ProductDetails } from "deco-sites/johnstart/loaders/getproductdetail.ts";
 
 export interface Props {
-  image: string;
-  title: string;
-  description: string;
-  price: number;
+  data: ProductDetails;
   items: Quotes;
 }
 
@@ -57,27 +55,29 @@ export function LoadingFallback() {
 }
 
 export default function HorizontalProductCard(
-  { image, title, description, price, items }: Props,
+  { data }: Props,
 ) {
   return (
     <div className="grid grid-cols-4 lg:grid-cols-6 justify-between max-w-screen-xl m-4 xl:mx-auto bg-secondary rounded-lg p-2 sm:p-3 md:p-5">
       <div className="md:max-w-40 col-span-1">
         <img
           className="aspect-square rounded-md"
-          src={image}
-          alt={title}
+          src={data.data.product.image && data.data.product.image[0].url}
+          alt={data.data.product.name}
         />
       </div>
       <div className="flex-grow px-4 col-span-2 lg:col-span-4 ">
-        <h3 className="font-bold text-lg sm:text-2xl md:text-3xl">{title}</h3>
+        <h3 className="font-bold text-lg sm:text-2xl md:text-3xl">
+          {data.data.product.name}
+        </h3>
         <p className="mt-2 md:mt-5  overflow-hidden line-clamp-3">
-          {description}
+          {data.data.product.description}
         </p>
         <LikeProduct />
       </div>
       <div className="flex flex-col p-2 w-full text-center col-span-1 lg:col-span-1">
         <span className="font-bold text-primary text-lg sm:text-2xl">
-          R$ {price.toFixed(2)}
+          R$ {data.data.product.offers?.highPrice.toFixed(2)}
         </span>
         <button className="w-full bg-success hover:bg-transparent hover:text-success hover:border hover:border-green-600 text-white font-bold py-2 px-2 sm:px-4 rounded">
           Comprar
