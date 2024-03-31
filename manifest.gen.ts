@@ -2,16 +2,19 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $$$$$$$$$0 from "./actions/sendPost.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
-import * as $$$2 from "./loaders/availableIcons.ts";
-import * as $$$3 from "./loaders/errorquote.ts";
-import * as $$$4 from "./loaders/getproductdetail.ts";
-import * as $$$5 from "./loaders/getquotes.ts";
-import * as $$$6 from "./loaders/icons.ts";
-import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
-import * as $$$1 from "./loaders/List/Sections.tsx";
-import * as $$$7 from "./loaders/slowquote.ts";
+import * as $$$0 from "./loaders/404loader.ts";
+import * as $$$3 from "./loaders/availableIcons.ts";
+import * as $$$4 from "./loaders/errorquote.ts";
+import * as $$$5 from "./loaders/getproductdetail.ts";
+import * as $$$6 from "./loaders/getquotes.ts";
+import * as $$$7 from "./loaders/icons.ts";
+import * as $$$1 from "./loaders/Layouts/ProductCard.tsx";
+import * as $$$2 from "./loaders/List/Sections.tsx";
+import * as $$$8 from "./loaders/registervote.ts";
+import * as $$$9 from "./loaders/slowquote.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/BannerList.tsx";
 import * as $$$$$$2 from "./sections/Cards/IconCardsCarousel.tsx";
@@ -67,14 +70,16 @@ import * as $$$$$$51 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
-    "deco-sites/johnstart/loaders/availableIcons.ts": $$$2,
-    "deco-sites/johnstart/loaders/errorquote.ts": $$$3,
-    "deco-sites/johnstart/loaders/getproductdetail.ts": $$$4,
-    "deco-sites/johnstart/loaders/getquotes.ts": $$$5,
-    "deco-sites/johnstart/loaders/icons.ts": $$$6,
-    "deco-sites/johnstart/loaders/Layouts/ProductCard.tsx": $$$0,
-    "deco-sites/johnstart/loaders/List/Sections.tsx": $$$1,
-    "deco-sites/johnstart/loaders/slowquote.ts": $$$7,
+    "deco-sites/johnstart/loaders/404loader.ts": $$$0,
+    "deco-sites/johnstart/loaders/availableIcons.ts": $$$3,
+    "deco-sites/johnstart/loaders/errorquote.ts": $$$4,
+    "deco-sites/johnstart/loaders/getproductdetail.ts": $$$5,
+    "deco-sites/johnstart/loaders/getquotes.ts": $$$6,
+    "deco-sites/johnstart/loaders/icons.ts": $$$7,
+    "deco-sites/johnstart/loaders/Layouts/ProductCard.tsx": $$$1,
+    "deco-sites/johnstart/loaders/List/Sections.tsx": $$$2,
+    "deco-sites/johnstart/loaders/registervote.ts": $$$8,
+    "deco-sites/johnstart/loaders/slowquote.ts": $$$9,
   },
   "sections": {
     "deco-sites/johnstart/sections/Animation/Animation.tsx": $$$$$$0,
@@ -131,6 +136,9 @@ const manifest = {
     "deco-sites/johnstart/sections/Social/WhatsApp.tsx": $$$$$$49,
     "deco-sites/johnstart/sections/TemperatureSection.tsx": $$$$$$50,
     "deco-sites/johnstart/sections/Theme/Theme.tsx": $$$$$$51,
+  },
+  "actions": {
+    "deco-sites/johnstart/actions/sendPost.ts": $$$$$$$$$0,
   },
   "apps": {
     "deco-sites/johnstart/apps/decohub.ts": $$$$$$$$$$$0,
