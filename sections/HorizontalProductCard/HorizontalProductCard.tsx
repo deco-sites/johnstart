@@ -1,13 +1,9 @@
-import Rating from "../components/daisy/Rating.tsx";
-import { Quotes } from "../loaders/getquotes.ts";
-import Skeleton from "../components/ui/Skeleton.tsx";
+import Skeleton from "../../components/ui/Skeleton.tsx";
+import LikeProduct from "../../islands/Like.tsx";
+import type { Product } from "apps/commerce/types.ts";
 
 export interface Props {
-  image: string;
-  title: string;
-  description: string;
-  price: number;
-  items: Quotes;
+  product: Product[] | null;
 }
 
 export function ErrorFallback({ error }: { error?: Error }) {
@@ -57,26 +53,34 @@ export function LoadingFallback() {
 }
 
 export default function HorizontalProductCard(
-  { image, title, description, price, items }: Props,
+  { product }: Props,
 ) {
+  const productName = product?.[0].name;
+  const srcImage = product?.[0].image?.[0].url;
+  const productDescription = product?.[0].description;
+  const price = product?.[0].offers?.highPrice.toFixed(2);
+
   return (
     <div className="grid grid-cols-4 lg:grid-cols-6 justify-between max-w-screen-xl m-4 xl:mx-auto bg-secondary rounded-lg p-2 sm:p-3 md:p-5">
       <div className="md:max-w-40 col-span-1">
         <img
           className="aspect-square rounded-md"
-          src={image}
-          alt={title}
+          src={srcImage}
+          alt={productName}
         />
       </div>
       <div className="flex-grow px-4 col-span-2 lg:col-span-4 ">
-        <h3 className="font-bold text-lg sm:text-2xl md:text-3xl">{title}</h3>
+        <h3 className="font-bold text-lg sm:text-2xl md:text-3xl">
+          {productName}
+        </h3>
         <p className="mt-2 md:mt-5  overflow-hidden line-clamp-3">
-          {description}
+          {productDescription}
         </p>
+        <LikeProduct />
       </div>
       <div className="flex flex-col p-2 w-full text-center col-span-1 lg:col-span-1">
         <span className="font-bold text-primary text-lg sm:text-2xl">
-          R$ {price.toFixed(2)}
+          R$ {price}
         </span>
         <button className="w-full bg-success hover:bg-transparent hover:text-success hover:border hover:border-green-600 text-white font-bold py-2 px-2 sm:px-4 rounded">
           Comprar
