@@ -1,6 +1,6 @@
 import { defineConfig } from "$fresh/server.ts";
 import plugins from "https://denopkg.com/deco-sites/std@1.25.0/plugins/mod.ts";
-import manifest from "./manifest.gen.ts";
+import manifest from "deco-sites/johnstart/manifest.gen.ts";
 import tailwind from "./tailwind.config.ts";
 
 export default defineConfig({

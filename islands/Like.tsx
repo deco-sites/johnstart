@@ -1,5 +1,5 @@
 import { useSignal } from "@preact/signals";
-import { likeData } from "deco-sites/johnstart/sections/sdk/likes.ts";
+import { likeData } from "deco-sites/johnstart/sdk/likes.ts";
 
 export default function LikeProduct() {
   const likeCount = useSignal(0);

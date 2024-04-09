@@ -1,4 +1,4 @@
-import { likeData } from "deco-sites/johnstart/sections/sdk/likes.ts";
+import { likeData } from "deco-sites/johnstart/sdk/likes.ts";
 
 export default function Computed() {
   return (
