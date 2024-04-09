@@ -11,13 +11,13 @@ export interface Props {
 
 export default function PartialImageGallery({ images, limit = 3 }: Props) {
   return (
-    <div className="flex text-center flex-col justify-center">
+    <div className="flex text-center flex-col justify-center p-4 max-w-full">
       <h2 className="font-semibold text-2xl my-5">Paisagens</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center mb-5 max-w-full">
         {images.map((img, idx) => (
           idx < limit && (
             <img
-              className="rounded-lg transition-transform duration-300 transform-gpu hover:scale-125 hover:z-10"
+              className="rounded-lg transition-transform duration-300 transform-gpu hover:scale-105 hover:z-10 aspect-video"
               src={img}
             />
           )

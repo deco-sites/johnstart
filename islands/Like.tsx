@@ -1,11 +1,7 @@
 import { useSignal } from "@preact/signals";
 import { likeData } from "deco-sites/johnstart/sdk/likes.ts";
 
-export interface Props {
-  productId: number;
-}
-
-export default function LikeProduct({ productId }: Props) {
+export default function LikeProduct() {
   const likeCount = useSignal(0);
 
   function handleCkick() {
