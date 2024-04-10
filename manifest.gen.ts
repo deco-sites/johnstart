@@ -2,7 +2,8 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $$$$$$$$$0 from "./actions/sendPost.ts";
+import * as $$$$$$$$$0 from "./actions/sendLikesAction.ts";
+import * as $$$$$$$$$1 from "./actions/sendPost.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 import * as $$$0 from "./loaders/404loader.ts";
@@ -16,6 +17,8 @@ import * as $$$2 from "./loaders/List/Sections.tsx";
 import * as $$$3 from "./loaders/MyLoader.ts";
 import * as $$$9 from "./loaders/registervote.ts";
 import * as $$$10 from "./loaders/slowquote.ts";
+import * as $$$11 from "./loaders/totalLikesLoader.ts";
+import * as $$$12 from "./loaders/totalLikesProductLoader.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/BannerList.tsx";
 import * as $$$$$$2 from "./sections/Cards/IconCardsCarousel.tsx";
@@ -84,6 +87,8 @@ const manifest = {
     "deco-sites/johnstart/loaders/MyLoader.ts": $$$3,
     "deco-sites/johnstart/loaders/registervote.ts": $$$9,
     "deco-sites/johnstart/loaders/slowquote.ts": $$$10,
+    "deco-sites/johnstart/loaders/totalLikesLoader.ts": $$$11,
+    "deco-sites/johnstart/loaders/totalLikesProductLoader.ts": $$$12,
   },
   "sections": {
     "deco-sites/johnstart/sections/Animation/Animation.tsx": $$$$$$0,
@@ -148,7 +153,8 @@ const manifest = {
     "deco-sites/johnstart/sections/Theme/Theme.tsx": $$$$$$51,
   },
   "actions": {
-    "deco-sites/johnstart/actions/sendPost.ts": $$$$$$$$$0,
+    "deco-sites/johnstart/actions/sendLikesAction.ts": $$$$$$$$$0,
+    "deco-sites/johnstart/actions/sendPost.ts": $$$$$$$$$1,
   },
   "apps": {
     "deco-sites/johnstart/apps/decohub.ts": $$$$$$$$$$$0,

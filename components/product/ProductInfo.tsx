@@ -144,13 +144,6 @@ function ProductInfo({ page, layout }: Props) {
                   productGroupID={productGroupID}
                 />
               )}
-              {platform === "vnda" && (
-                <AddToCartButtonVNDA
-                  eventParams={{ items: [eventItem] }}
-                  productID={productID}
-                  additionalProperty={additionalProperty}
-                />
-              )}
               {platform === "shopify" && (
                 <AddToCartButtonShopify
                   eventParams={{ items: [eventItem] }}
