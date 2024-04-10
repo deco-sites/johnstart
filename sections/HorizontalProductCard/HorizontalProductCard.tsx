@@ -3,6 +3,7 @@ import type { Product } from "apps/commerce/types.ts";
 
 export interface Props {
   product: Product[] | null;
+  animateImage?: boolean;
 }
 
 export function ErrorFallback({ error }: { error?: Error }) {
@@ -50,7 +51,7 @@ export function LoadingFallback() {
 }
 
 export default function HorizontalProductCard(
-  { product }: Props,
+  { product, animateImage }: Props,
 ) {
   const productName = product?.[0].name;
   const srcImage = product?.[0].image?.[0].url;
@@ -59,18 +60,21 @@ export default function HorizontalProductCard(
 
   return (
     <div className="grid grid-cols-4 lg:grid-cols-6 justify-between max-w-screen-xl m-4 xl:mx-auto bg-secondary rounded-lg p-2 sm:p-3 md:p-5">
-      <div className="md:max-w-40 col-span-1">
+      <div className="md:max-w-40 col-span-1 rounded-md overflow-hidden">
         <img
-          className="aspect-square rounded-md"
+          className={`aspect-square duration-300 ${
+            animateImage ? "hover:scale-110" : ""
+          }`}
           src={srcImage}
           alt={productName}
+          loading="lazy"
         />
       </div>
       <div className="flex-grow px-4 col-span-2 lg:col-span-4 ">
         <h3 className="font-bold text-lg sm:text-2xl md:text-3xl">
           {productName}
         </h3>
-        <p className="mt-2 md:mt-5  overflow-hidden line-clamp-3">
+        <p className="mt-2 md:mt-5  overflow-hidden line-clamp-2">
           {productDescription}
         </p>
         <LikeProduct />
