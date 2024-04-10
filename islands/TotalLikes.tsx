@@ -1,6 +1,6 @@
-import { likeData } from "deco-sites/johnstart/sdk/likes.ts";
+import { likeData } from "../sdk/useLikes.ts";
 
-export default function Computed() {
+export default function TotalLikes() {
   return (
     <span className="flex items-center justify-center gap-2 text-gray-600">
       <svg

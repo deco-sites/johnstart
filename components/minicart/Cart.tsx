@@ -18,10 +18,6 @@ function Cart({ platform }: Props) {
     return <CartVTEX />;
   }
 
-  if (platform === "vnda") {
-    return <CartVNDA />;
-  }
-
   if (platform === "wake") {
     return <CartWake />;
   }

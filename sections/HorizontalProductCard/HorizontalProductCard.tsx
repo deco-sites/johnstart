@@ -1,4 +1,4 @@
-import LikeProduct from "deco-sites/johnstart/islands/Like.tsx";
+import LikeProduct from "deco-sites/johnstart/islands/LikeProduct.tsx";
 import type { Product } from "apps/commerce/types.ts";
 
 export interface Props {
@@ -57,6 +57,7 @@ export default function HorizontalProductCard(
   const srcImage = product?.[0].image?.[0].url;
   const productDescription = product?.[0].description;
   const price = product?.[0].offers?.highPrice.toFixed(2);
+  const productID = product?.[0].productID;
 
   return (
     <div className="grid grid-cols-4 lg:grid-cols-6 justify-between max-w-screen-xl m-4 xl:mx-auto bg-secondary rounded-lg p-2 sm:p-3 md:p-5">
@@ -77,7 +78,7 @@ export default function HorizontalProductCard(
         <p className="mt-2 md:mt-5  overflow-hidden line-clamp-2">
           {productDescription}
         </p>
-        <LikeProduct />
+        <LikeProduct productID={productID} />
       </div>
       <div className="flex flex-col p-2 w-full text-center col-span-1 lg:col-span-1">
         <span className="font-bold text-primary text-lg sm:text-2xl">

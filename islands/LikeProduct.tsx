@@ -1,21 +1,47 @@
 import { useSignal } from "@preact/signals";
-import { likeData } from "deco-sites/johnstart/sdk/likes.ts";
+import { likeData } from "../sdk/useLikes.ts";
+import { invoke } from "deco-sites/johnstart/runtime.ts";
+import { useEffect } from "preact/hooks";
 
-export default function LikeProduct() {
+export interface LikeProductProps {
+  productID: string | undefined;
+}
+
+export default function LikeProduct({ productID }: LikeProductProps) {
   const likeCount = useSignal(0);
+  const selected = useSignal(false);
 
-  function handleCkick() {
-    likeCount.value++;
-    likeData.value++;
-  }
+  useEffect(() => {
+    const updateTotals = async () => {
+      const totalLikes = await invoke["deco-sites/johnstart"].loaders
+        .totalLikesLoader();
+      const totalLikesProduct = await invoke["deco-sites/johnstart"].loaders
+        .totalLikesProductLoader({ productID });
+      likeData.value = totalLikes.total;
+      likeCount.value = totalLikesProduct.product;
+    };
+
+    updateTotals();
+    setInterval(updateTotals, 30000);
+  });
+
+  const handleToggleLike = async (e: MouseEvent) => {
+    e.preventDefault();
+    const result = await invoke["deco-sites/johnstart"].actions
+      .sendLikesAction({ productID });
+    selected.value = true;
+    likeData.value = result.total;
+    likeCount.value = result.product;
+  };
+
   return (
     <button
       className={`flex items-start gap-4 my-4 font-bold py-2 rounded ${
-        likeCount.value > 0 ? "text-info" : "text-gray-600"
+        selected.value && "text-info"
       }`}
-      onClick={handleCkick}
+      onClick={(e) => handleToggleLike(e)}
     >
-      {likeCount.value > 0
+      {selected.value
         ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
