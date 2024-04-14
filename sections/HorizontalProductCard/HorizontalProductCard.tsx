@@ -58,6 +58,7 @@ export default function HorizontalProductCard(
   const productDescription = product?.[0].description;
   const price = product?.[0].offers?.highPrice.toFixed(2);
   const productID = product?.[0].productID;
+  const productUrl = product?.[0].url;
 
   return (
     <div className="grid grid-cols-4 lg:grid-cols-6 justify-between max-w-screen-xl m-4 xl:mx-auto bg-secondary rounded-lg p-2 sm:p-3 md:p-5">
@@ -84,9 +85,15 @@ export default function HorizontalProductCard(
         <span className="font-bold text-primary text-lg sm:text-2xl">
           R$ {price}
         </span>
-        <button className="w-full bg-success hover:bg-transparent hover:text-success hover:border hover:border-green-600 text-white font-bold py-2 px-2 sm:px-4 rounded">
+        <button className="w-full border bg-success hover:bg-transparent hover:text-success border-green-600 text-white font-bold py-2 px-2 sm:px-4 rounded">
           Comprar
         </button>
+        <a
+          href={productUrl}
+          className="w-full mt-4 border border-info hover:bg-info bg-transparent hover:text-white hover:border-none text-info font-bold py-2 px-2 sm:px-4 rounded"
+        >
+          Detalhes
+        </a>
       </div>
     </div>
   );
