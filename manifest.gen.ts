@@ -19,6 +19,7 @@ import * as $$$9 from "./loaders/registervote.ts";
 import * as $$$10 from "./loaders/slowquote.ts";
 import * as $$$11 from "./loaders/totalLikesLoader.ts";
 import * as $$$12 from "./loaders/totalLikesProductLoader.ts";
+import * as $$$$$$$0 from "./matchers/utm.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/BannerList.tsx";
 import * as $$$$$$2 from "./sections/Cards/IconCardsCarousel.tsx";
@@ -151,6 +152,9 @@ const manifest = {
     "deco-sites/johnstart/sections/temperature/TemperatureSection.tsx":
       $$$$$$53,
     "deco-sites/johnstart/sections/Theme/Theme.tsx": $$$$$$51,
+  },
+  "matchers": {
+    "deco-sites/johnstart/matchers/utm.ts": $$$$$$$0,
   },
   "actions": {
     "deco-sites/johnstart/actions/sendLikesAction.ts": $$$$$$$$$0,
