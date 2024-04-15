@@ -5,6 +5,23 @@ export interface Props {
   description?: string;
 }
 
+export function LoadingFallback() {
+  return (
+    <div className="bg-secondary mx-auto my-10 max-w-screen-md w-full m-4 rounded-md grid grid-cols-4 py-8 gap-4 items-center justify-center">
+      <div className="col-span-3">
+        <div className="animate-pulse flex flex-col items-center justify-center gap-4 px-4">
+          <div className="bg-neutral h-6 w-full"></div>
+          <div className="bg-neutral h-4 w-full max-w-sm"></div>
+        </div>
+      </div>
+      <div className="col-span-1 flex items-center justify-center">
+        <div className="animate-pulse border bg-neutral h-12 w-full max-w-full mx-4">
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function TemperatureSection(props: Props) {
   return (
     <div className="flex justify-center items-stretch h-auto mx-2 my-10">
