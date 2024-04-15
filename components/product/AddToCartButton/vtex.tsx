@@ -17,7 +17,14 @@ function AddToCartButton({ seller, productID, eventParams }: Props) {
       }],
     });
 
-  return <Button onAddItem={onAddItem} eventParams={eventParams} />;
+  return (
+    <>
+      <Button
+        onAddItem={onAddItem}
+        eventParams={eventParams}
+      />
+    </>
+  );
 }
 
 export default AddToCartButton;
