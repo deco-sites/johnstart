@@ -1,5 +1,6 @@
 import { usePartialSection } from "deco/hooks/usePartialSection.ts";
 import type { ImageWidget } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
 
 export interface Props {
   images: Array<ImageWidget>;
@@ -16,9 +17,13 @@ export default function PartialImageGallery({ images, limit = 3 }: Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center mb-5 max-w-full">
         {images.map((img, idx) => (
           idx < limit && (
-            <img
+            <Image
               className="rounded-lg transition-transform duration-300 transform-gpu hover:scale-105 hover:z-10 aspect-video"
               src={img}
+              loading="lazy"
+              fetchPriority="low"
+              width={402}
+              height={226}
             />
           )
         ))}
