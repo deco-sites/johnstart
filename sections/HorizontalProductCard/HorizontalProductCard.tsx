@@ -1,5 +1,6 @@
 import LikeProduct from "deco-sites/johnstart/islands/LikeProduct.tsx";
 import type { Product } from "apps/commerce/types.ts";
+import Image from "apps/website/components/Image.tsx";
 
 export interface Props {
   product: Product[] | null;
@@ -9,10 +10,14 @@ export interface Props {
 export function ErrorFallback({ error }: { error?: Error }) {
   return (
     <div className="flex flex-row justify-between max-w-screen-xl m-4 xl:mx-auto bg-secondary rounded-lg p-5">
-      <img
+      <Image
         className="md:w-full md:max-w-56 rounded-md"
         src="https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/4823/7f559d15-4255-4c69-809d-4e332085fba1"
         alt="Duas pessoas cavalgando"
+        loading="lazy"
+        width={160}
+        height={160}
+        fetchPriority="low"
       />
       <div className="flex-grow p-4">
         <h3 className="font-bold text-3xl">Cultura Gaúcha</h3>
@@ -54,7 +59,7 @@ export default function HorizontalProductCard(
   { product, animateImage }: Props,
 ) {
   const productName = product?.[0].name;
-  const srcImage = product?.[0].image?.[0].url;
+  const srcImage = product?.[0].image?.[0].url || "";
   const productDescription = product?.[0].description;
   const price = product?.[0].offers?.highPrice.toFixed(2);
   const productID = product?.[0].productID;
@@ -63,13 +68,16 @@ export default function HorizontalProductCard(
   return (
     <div className="grid grid-cols-4 lg:grid-cols-6 justify-between max-w-screen-xl m-4 xl:mx-auto bg-secondary rounded-lg p-2 sm:p-3 md:p-5">
       <div className="md:max-w-40 col-span-1 rounded-md overflow-hidden">
-        <img
+        <Image
           className={`aspect-square duration-300 ${
             animateImage ? "hover:scale-110" : ""
           }`}
           src={srcImage}
           alt={productName}
           loading="lazy"
+          width={160}
+          height={160}
+          fetchPriority="low"
         />
       </div>
       <div className="flex-grow px-4 col-span-2 lg:col-span-4 ">

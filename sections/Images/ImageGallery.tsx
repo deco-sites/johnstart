@@ -154,13 +154,14 @@ function Banner(
           media="(min-width: 768px)"
           src={srcDesktop || srcMobile}
         />
-        <img
+        <Image
           width={640}
           class="w-full h-full object-cover"
           src={srcMobile}
           alt={alt}
-          decoding="async"
-          loading="lazy"
+          preload
+          loading="eager"
+          fetchPriority="high"
         />
       </Picture>
     </a>
