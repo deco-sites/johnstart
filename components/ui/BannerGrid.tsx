@@ -137,7 +137,7 @@ export default function BannnerGrid(props: Props) {
           </div>
         )}
       <div
-        class={`grid gap-4 md:gap-6 ${
+        class={`grid gap-4 md:gap-6 mb-10 ${
           MOBILE_COLUMNS[itemsPerLine?.mobile ?? 2]
         } ${DESKTOP_COLUMNS[itemsPerLine?.desktop ?? 4]}`}
       >

@@ -5,7 +5,7 @@ export interface Props {
 
 export default function TemperatureFloating({ temperature }: Props) {
   return (
-    <button className="fixed bottom-4 right-4 bg-primary hover:bg-acent text-white font-bold py-8 px-4 rounded-full z-10">
+    <button className="fixed bottom-4 border border-white right-4 bg-success hover:bg-acent w-16 h-16 text-white font-bold rounded-full z-10">
       <div className="flex items-center">
         <svg
           xmlns="18"
