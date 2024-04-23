@@ -6,9 +6,9 @@ export interface Props {
 export default function Cupom(props: Props) {
   return (
     <div className="flex justify-center items-stretch h-auto mb-10 mx-2 my-20">
-      <div className="flex rounded-lg overflow-hidden">
+      <div className="flex flex-col sm:flex-row rounded-lg overflow-hidden">
         <div className="flex-auto px-8 bg-primary flex justify-center items-center">
-          <span className="text-4xl font-bold uppercase text-secondary">
+          <span className="text-4xl my-6 font-bold uppercase text-secondary">
             Cupom
           </span>
         </div>

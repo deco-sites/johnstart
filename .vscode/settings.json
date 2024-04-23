@@ -12,5 +12,9 @@
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "cSpell.language": "en, pt",
+  "cSpell.words": [
+    "johnstart"
+  ]
 }
