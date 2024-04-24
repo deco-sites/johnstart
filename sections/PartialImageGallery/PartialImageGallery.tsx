@@ -18,7 +18,7 @@ export default function PartialImageGallery({ images, limit = 3 }: Props) {
         {images.map((img, idx) => (
           idx < limit && (
             <Image
-              className="rounded-lg transition-transform duration-300 transform-gpu hover:scale-105 hover:z-10 aspect-video"
+              className="rounded-lg w-full transition-transform duration-300 transform-gpu hover:scale-105 hover:z-10 aspect-video"
               src={img}
               loading="lazy"
               fetchPriority="low"

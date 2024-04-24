@@ -46,7 +46,7 @@ export default function AddToCartButton(props: Props) {
   const btnProps = useAddToCart(props);
 
   return (
-    <Button {...btnProps} class="btn-primary">
+    <Button {...btnProps} class="btn-primary py-4">
       Adicionar à Sacola
       <ToastContainerComponent
         position="bottom-left"
