@@ -1,6 +1,8 @@
 import LikeProduct from "deco-sites/johnstart/islands/LikeProduct.tsx";
 import type { Product } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
+import { useOffer } from "../../sdk/useOffer.ts";
+import AddToCartButtonVTEX from "../../islands/AddToCartButton/vtex.tsx";
 
 export interface Props {
   product: Product[] | null;
@@ -61,15 +63,23 @@ export default function HorizontalProductCard(
   const productName = product?.[0].name;
   const srcImage = product?.[0].image?.[0].url || "";
   const productDescription = product?.[0].description;
-  const price = product?.[0].offers?.highPrice.toFixed(2);
   const productID = product?.[0].productID;
   const productUrl = product?.[0].url;
+  const offers = product?.[0].offers;
+
+  const {
+    price = 0,
+    listPrice,
+    seller = "1",
+    installments,
+    availability,
+  } = useOffer(offers);
 
   return (
-    <div className="grid grid-cols-4 lg:grid-cols-6 justify-between max-w-screen-xl m-4 xl:mx-auto bg-secondary rounded-lg p-2 sm:p-3 md:p-5">
+    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 justify-between max-w-screen-xl m-4 xl:mx-auto bg-secondary rounded-lg p-2 sm:p-3 md:p-5">
       <div className="md:max-w-40 col-span-1 rounded-md overflow-hidden">
         <Image
-          className={`aspect-square duration-300 ${
+          className={`aspect-square duration-300 w-full ${
             animateImage ? "hover:scale-110" : ""
           }`}
           src={srcImage}
@@ -80,7 +90,7 @@ export default function HorizontalProductCard(
           fetchPriority="low"
         />
       </div>
-      <div className="flex-grow px-4 col-span-2 lg:col-span-4 ">
+      <div className="flex-grow px-4 col-span-1 sm:col-span-2 lg:col-span-4 ">
         <h3 className="font-bold text-lg sm:text-2xl md:text-3xl">
           {productName}
         </h3>
@@ -89,13 +99,15 @@ export default function HorizontalProductCard(
         </p>
         <LikeProduct productID={productID} />
       </div>
-      <div className="flex flex-col p-2 w-full text-center col-span-1 lg:col-span-1">
+      <div className="flex flex-col p-2 w-full text-center col-span-2 sm:col-span-1 lg:col-span-1">
         <span className="font-bold text-primary text-lg sm:text-2xl">
-          R$ {price}
+          R$ {price.toFixed(2)}
         </span>
-        <button className="w-full border bg-success hover:bg-transparent hover:text-success border-green-600 text-white font-bold py-2 px-2 sm:px-4 rounded">
-          Comprar
-        </button>
+        <AddToCartButtonVTEX
+          eventParams={{ items: [] }}
+          productID={productID || ""}
+          seller={seller}
+        />
         <a
           href={productUrl}
           className="w-full mt-4 border border-info hover:bg-info bg-transparent hover:text-white hover:border-none text-info font-bold py-2 px-2 sm:px-4 rounded"
