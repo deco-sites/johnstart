@@ -28,16 +28,18 @@ export default function PartialImageGallery({ images, limit = 3 }: Props) {
           )
         ))}
       </div>
-      {limit < images.length && (
-        <button
-          {...usePartialSection({
-            props: { limit: limit + 1 },
-          })}
-          className="w-56 bg-success m-auto hover:bg-transparent hover:text-success hover:border hover:border-green-600 text-white font-bold py-2 px-4 rounded"
-        >
-          Show More
-        </button>
-      )}
+      <div className="h-20 flex justify-center items-center">
+        {limit < images.length && (
+          <button
+            {...usePartialSection({
+              props: { limit: limit + 1 },
+            })}
+            className="w-56 bg-success m-auto hover:bg-transparent hover:text-success border border-success text-white font-bold py-2 px-4 rounded"
+          >
+            Show More
+          </button>
+        )}
+      </div>
     </div>
   );
 }
